@@ -7,7 +7,6 @@
   >
     <div class="childapp-inner">
       <div id="nav">
-        <p><i>nav颜色不变的，不要关注啦</i></p>
         <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
         <router-link to="/jump">Jump</router-link> |
         <router-link to="/theme">Theme</router-link>
@@ -38,7 +37,7 @@
 </script>
 
 <style lang="less">
-  @import '../../../common/styles/index.less';
+  @import '../../../common/styles/var.less';
   .childapp-inner {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

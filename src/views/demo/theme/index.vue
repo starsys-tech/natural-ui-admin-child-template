@@ -1,7 +1,6 @@
 <template>
   <div>
-    <n-el tag="span" style="color: var(--primary-color)"> naive-ui theme color </n-el>
-    <p class="skin-text">我是随背景图片变换颜色的文字</p>
+    <n-el tag="p" style="color: var(--primary-color)"> naive-ui theme color </n-el>
     <n-el
       class="switch-text"
       tag="span"
@@ -10,6 +9,8 @@
     >
       点我切换状态色
     </n-el>
+    <n-el tag="p" style="color: var(--text-color-base)"> 我是适配暗黑主题的文字 </n-el>
+    <p class="skin-text">我是随背景图片变换颜色的文字</p>
   </div>
 </template>
 <script lang="ts" setup>
