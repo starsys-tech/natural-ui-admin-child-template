@@ -9,7 +9,7 @@ export default defineConfig({
     emptyOutDir: false,
     lib: {
       entry: 'src/export.ts',
-      name: 'na-sprite-animate-icon',
+      name: 'na-child-component-demo',
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
