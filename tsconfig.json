@@ -1,36 +1,4 @@
 {
   "extends": "../../config/tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "types": [
-      "webpack-env",
-      "jest"
-    ],
-    "typeRoots": [
-      "./node_modules/@types/",
-      "./types"
-    ],
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "/#/*": [
-        "types/*"
-      ],
-      "@root/*": [
-        "../../*"
-      ],
-      "@common/*": [
-        "../../common/*"
-      ],
-    },
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx",
-    "types/**/*.d.ts"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }

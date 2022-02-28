@@ -6,9 +6,12 @@ node_modules
 .vscode
 .idea
 dist
+lib/*.js
 /public
 /docs
 .husky
 .local
 /bin
 Dockerfile
+components.d.ts
+components.d.ts
