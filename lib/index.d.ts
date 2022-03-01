@@ -1,1 +1,1 @@
-export declare type sayHello = void;
+export declare function sayHello(): string;
