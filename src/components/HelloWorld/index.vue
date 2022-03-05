@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ props.content }}</h1>
+  <h1 data-test="hello">{{ props.content }}</h1>
 </template>
 <script lang="ts" setup>
   /**
