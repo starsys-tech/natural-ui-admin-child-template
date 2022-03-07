@@ -5,8 +5,13 @@ import naive from 'naive-ui';
 import App from './App.vue';
 import router from './router';
 import { setupStore } from '@/store';
+import { useDesignSettingWithOut } from '@/store/modules/designSetting';
 
 const app = createApp(App);
+
+const { DesignUtils } = window.microApp.getData();
+app.config.globalProperties.$design = new DesignUtils(useDesignSettingWithOut);
+
 app.use(naive);
 setupStore(app);
 app.use(router);
@@ -21,6 +26,4 @@ function dataListener(data: any) {
     router.replace(data.pageRoute);
   }
 }
-if (window.microApp) {
-  window.microApp.addDataListener(dataListener, true);
-}
+window.microApp.addDataListener(dataListener, true);

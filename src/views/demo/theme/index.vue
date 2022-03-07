@@ -10,6 +10,12 @@
       点我切换状态色
     </n-el>
     <n-el tag="p" style="color: var(--text-color-base)"> 我是适配暗黑主题的文字 </n-el>
+    <p
+      :style="{
+        color: $design.color('#ff5c93'),
+      }"
+      >我是适配暗黑主题的扩展色</p
+    >
     <p class="skin-text">我是随背景图片变换颜色的文字</p>
   </div>
 </template>

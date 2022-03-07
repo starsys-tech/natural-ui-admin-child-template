@@ -19,18 +19,21 @@
 <script lang="ts" setup>
   import { reactive } from 'vue';
   import { zhCN, dateZhCN, darkTheme } from 'naive-ui';
+  import { useDesignSettingStore } from '@/store/modules/designSetting';
 
   const design = reactive({
     themeOverrides: {},
     getDarkTheme: undefined,
   });
+  const designStore = useDesignSettingStore(); // 子应用的主题状态
 
   // 监听主应用主题store改变
   function designStoreListener(data) {
-    const { designStore } = data;
-    if (designStore) {
-      design.themeOverrides = designStore.getThemeOverrides;
-      design.getDarkTheme = designStore.darkTheme ? darkTheme : undefined;
+    const { designStore: mainDesignStore } = data;
+    if (mainDesignStore) {
+      design.themeOverrides = mainDesignStore.getThemeOverrides;
+      design.getDarkTheme = mainDesignStore.darkTheme ? darkTheme : undefined;
+      designStore.darkTheme = mainDesignStore.darkTheme; // 在子应用同步主应用的暗黑模式状态
     }
   }
   window.microApp.addDataListener(designStoreListener, true);
