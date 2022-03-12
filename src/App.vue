@@ -36,7 +36,9 @@
       designStore.darkTheme = mainDesignStore.darkTheme; // 在子应用同步主应用的暗黑模式状态
     }
   }
-  window.microApp.addDataListener(designStoreListener, true);
+  if (window.microApp) {
+    window.microApp.addDataListener(designStoreListener, true);
+  }
 </script>
 
 <style lang="less">

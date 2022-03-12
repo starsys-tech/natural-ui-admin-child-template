@@ -9,9 +9,6 @@ import { useDesignSettingWithOut } from '@/store/modules/designSetting';
 
 const app = createApp(App);
 
-const { DesignUtils } = window.microApp.getData();
-app.config.globalProperties.$design = new DesignUtils(useDesignSettingWithOut);
-
 app.use(naive);
 setupStore(app);
 app.use(router);
@@ -25,5 +22,14 @@ function dataListener(data: any) {
   if (data.pageRoute) {
     router.replace(data.pageRoute);
   }
+
+  /**
+   * 主应用下发的工具
+   */
+  if (data.DesignUtils) {
+    app.config.globalProperties.$design = new data.DesignUtils(useDesignSettingWithOut);
+  }
 }
-window.microApp.addDataListener(dataListener, true);
+if (window.microApp) {
+  window.microApp.addDataListener(dataListener, true);
+}
