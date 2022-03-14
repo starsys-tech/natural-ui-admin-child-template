@@ -27,7 +27,10 @@ const router = createRouter({
 if (window.__MICRO_APP_ENVIRONMENT__) {
   // 如果__MICRO_APP_BASE_ROUTE__为 `/基座应用基础路由/子应用基础路由/`，则应去掉`/基座应用基础路由`
   // 如果对这句话不理解，可以参考案例：https://github.com/micro-zoe/micro-app-demo
-  const publicPath = window.microApp.getData().publicPath; // 主应用publicPath
+  let publicPath = '';
+  if (window.microAppData) {
+    publicPath = window.microAppData.publicPath; // 主应用publicPath
+  }
   const realBaseRoute = window.__MICRO_APP_BASE_ROUTE__.replace(publicPath, ''); // publicPath替换为空字符串
 
   router.beforeEach(() => {

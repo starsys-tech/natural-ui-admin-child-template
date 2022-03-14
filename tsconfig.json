@@ -33,5 +33,5 @@
     "tests/**/*.tsx",
     "types/**/*.d.ts"
   ],
-  "exclude": ["node_modules", "dist", "common", "*.js"]
+  "exclude": ["node_modules", "dist", "../../common", "*.js"]
 }

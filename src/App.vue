@@ -21,24 +21,21 @@
   import { zhCN, dateZhCN, darkTheme } from 'naive-ui';
   import { useDesignSettingStore } from '@/store/modules/designSetting';
 
-  const design = reactive({
-    themeOverrides: {},
-    getDarkTheme: undefined,
-  });
-  const designStore = useDesignSettingStore(); // 子应用的主题状态
+  const { useDesignSettingStore: useBaseDesignSettingStore } = window.microApp.getData(); // App.vue入口文件使用window.microApp.getData(),其他页面文件则使用window.microAppData
 
-  // 监听主应用主题store改变
-  function designStoreListener(data) {
-    const { designStore: mainDesignStore } = data;
-    if (mainDesignStore) {
-      design.themeOverrides = mainDesignStore.getThemeOverrides;
-      design.getDarkTheme = mainDesignStore.darkTheme ? darkTheme : undefined;
-      designStore.darkTheme = mainDesignStore.darkTheme; // 在子应用同步主应用的暗黑模式状态
-    }
-  }
-  if (window.microApp) {
-    window.microApp.addDataListener(designStoreListener, true);
-  }
+  const baseDesignStore = useBaseDesignSettingStore(); // 主应用主题store
+  const designStore = useDesignSettingStore(); // 子应用自己的主题store，只记录darkTheme
+
+  const design = reactive({
+    themeOverrides: baseDesignStore.getThemeOverrides,
+    getDarkTheme: baseDesignStore.darkTheme ? darkTheme : undefined,
+  });
+
+  baseDesignStore.$subscribe(() => {
+    design.themeOverrides = baseDesignStore.getThemeOverrides;
+    design.getDarkTheme = baseDesignStore.darkTheme ? darkTheme : undefined;
+    designStore.darkTheme = baseDesignStore.darkTheme; // 在子应用同步主应用的暗黑模式状态
+  });
 </script>
 
 <style lang="less">

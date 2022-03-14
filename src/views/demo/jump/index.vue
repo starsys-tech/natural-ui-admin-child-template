@@ -13,11 +13,9 @@
   const router = useRouter();
 
   function goMainAbout() {
-    if (window.microApp) {
-      const { mainRouter } = window.microApp.getData();
-      mainRouter.push({
-        name: 'about_index',
-      });
-    }
+    const { baseRouter } = window.microAppData;
+    baseRouter.push({
+      name: 'about_index',
+    });
   }
 </script>

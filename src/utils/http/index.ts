@@ -16,4 +16,4 @@ export const http = createAxios(
 ); */
 
 // 使用主应用实例
-export const { http } = window.microApp.getData();
+export const { http } = window.microAppData;
