@@ -32,7 +32,9 @@ export class ComponentAppender {
    * @param containerId
    */
   static unmount(containerId: string) {
-    const container = getContainer(containerId);
-    render(null, container);
+    setTimeout(() => {
+      const container = getContainer(containerId);
+      render(null, container);
+    }, 0);
   }
 }
