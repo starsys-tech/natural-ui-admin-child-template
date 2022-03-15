@@ -8,12 +8,14 @@ const appConfig = child.getAppConfig(APP_NAME, '', 'node');
 module.exports = {
   outputDir: `dist${appConfig.baseurl}`,
   publicPath: appConfig.baseurl,
+
   devServer: {
     port: 8002,
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
   },
+
   configureWebpack: {
     resolve: {
       alias: {
@@ -21,6 +23,13 @@ module.exports = {
         '@root': resolve(__dirname, '../../'),
         '@common': resolve(__dirname, '../../common/'),
       },
+    },
+  },
+
+  pluginOptions: {
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [resolve(__dirname, '../../common/styles/var.less')],
     },
   },
 };
