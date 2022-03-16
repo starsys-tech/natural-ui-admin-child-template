@@ -2,6 +2,7 @@ interface MicroApp {
   addDataListener: Function;
   removeDataListener: Function;
   clearDataListener: Function;
+  removeDomScope: Function;
   getData: Function;
   dispatch: Function;
 }
