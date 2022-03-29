@@ -5,7 +5,7 @@
     :theme-overrides="design.themeOverrides"
     :date-locale="dateZhCN"
   >
-    <div class="childapp-inner">
+    <div class="childapp-wrap">
       <div id="nav">
         <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> |
         <router-link to="/jump">Jump</router-link> |
@@ -38,9 +38,10 @@
   });
 </script>
 
-<style lang="less">
-  @import '../../../common/styles/var.less';
-  .childapp-inner {
+<style lang="less" scoped>
+  .childapp-wrap {
+    height: calc(100vh - var(--header-height));
+
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
