@@ -2,9 +2,6 @@ const globals = require('./jest/mocks/globals');
 
 module.exports = {
   preset: '@vue/cli-plugin-unit-jest/presets/typescript',
-  transform: {
-    '^.+\\.vue$': 'vue-jest',
-  },
   testEnvironment: 'jsdom',
   coverageDirectory: 'coverage',
   collectCoverageFrom: ['src/views/**/*.vue'],
