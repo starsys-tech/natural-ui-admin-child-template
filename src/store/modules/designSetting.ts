@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { store } from '@/store';
-import designSetting from '@common/settings/design';
+import designSetting from '@common/settings/designSetting';
 
 const { darkTheme } = designSetting;
 
