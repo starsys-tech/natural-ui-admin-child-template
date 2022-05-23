@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 
-const files = require.context('.', false, /\.ts$/);
+const files = require.context('.', true, /\.ts$/);
 let routeList: Array<RouteRecordRaw> = [];
 files.keys().forEach((key) => {
   if (key === './index.ts') {
